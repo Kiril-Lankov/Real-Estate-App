@@ -1,7 +1,8 @@
 export const listData = [
     {
         id: 1,
-        title: "A great Apartment next to the beach.",
+        title: "Beautiful apartment.",
+        price:1200,
         img: "/1.jpg",
         bedroom: 2,
         bathroom: 1,
@@ -37,3 +38,31 @@ export const listData = [
         longitude: -2.2426
     }
 ]
+
+export const singlePosData = {
+    
+        id: 1,
+        title: "Beautiful apartment.",
+        price:1200,
+        images: ["/1.jpg","/11.jpg","/111.jpg","/bath1.jpg"
+
+        ],
+        bedroom: 2,
+        bathroom: 1,
+        size: 861,
+        latitude: 51.5074,
+        longitude: -0.1278,
+        city: "London",
+        address: "456 Park Avenue",
+        school: "250m away",
+        bus: "100m away",
+        restaurabt: "50m away",
+        description: "Step into the epitome of urban living, where sleek design meets unbeatable location. This apartment serves as your personal sanctuary in the city, featuring contemporary furnishings, cutting-edge technology, and floor-to-ceiling windows that offer panoramic views of the urban skyline. Ideal for the traveler seeking the pulse of city life, this space is strategically situated to give you easy access to the city's finest dining, shopping, and entertainment options, making your stay as exciting as it is comfortable."
+
+    };
+
+    export const userData = {
+    id: 1,
+    name: "John Doe",
+    img: "/john-doe.jpg"
+};
