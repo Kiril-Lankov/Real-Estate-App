@@ -78,21 +78,21 @@ function SinglePage({items}) {
                     
                         <div className="feature">
                             <img src="/school.png" alt="" />
-                            <div className="featuretext">
+                            <div className="featureText">
                                 <span>School</span>
                                 <p>250m away</p>
                             </div>
                         </div>
                         <div className="feature">
                             <img src="/restaurant.png" alt="" />
-                            <div className="featuretext">
+                            <div className="featureText">
                                 <span>Restaurant</span>
                                 <p>200m away</p>
                             </div>
                         </div>
                         <div className="feature">
                             <img src="/bus.png" alt="" />
-                            <div className="featuretext">
+                            <div className="featureText">
                                 <span>Bus Stop</span>
                                 <p>100m away</p>
                             </div>
