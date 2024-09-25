@@ -2,11 +2,10 @@ export const listData = [
     {
         id: 1,
         title: "Beautiful apartment.",
-        price:1200,
         img: "/1.jpg",
         bedroom: 2,
         bathroom: 1,
-        price: 1000,
+        price: 1200,
         address: "456 Park Avenue, London",
         latitude: 51.5074,
         longitude: -0.1278
@@ -20,7 +19,7 @@ export const listData = [
         bedroom: 3,
         bathroom: 2,
         price: 2500,
-        address: "789 Oxford Street, London",
+        address: "789 Oxford Street, Birmingham",
         latitude: 52.4862,
         longitude: -1.8904
     },
@@ -33,7 +32,7 @@ export const listData = [
         bedroom: 3,
         bathroom: 2,
         price: 1500,
-        address: "101 Baker Street, London",
+        address: "101 Baker Street, Manchester",
         latitude: 53.4808,
         longitude: -2.2426
     }
