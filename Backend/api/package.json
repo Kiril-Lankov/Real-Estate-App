@@ -5,14 +5,20 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "nodemon app.js"
+    "start": "nodemon app.js",
+    "dev": "nodemon --watch .env --exec 'node app.js'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@prisma/client": "^5.20.0",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
     "express": "^4.21.0",
-    "nodemon": "^3.1.7"
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.7",
+    "prisma": "^5.20.0"
   }
 }
