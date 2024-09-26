@@ -51,7 +51,9 @@ if(!user) return res.status(401).json({message: "Invalid Credentials!"});
     const age = 1000 * 60 * 60 * 24 * 7
 
     const token = jwt.sign({
-        id: user.id
+        id: user.id,
+        isAdmin: false
+
     }, process.env.JWT_SECRET_KEY, 
 {expiresIn: age}
 );
