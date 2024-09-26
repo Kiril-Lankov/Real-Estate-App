@@ -1,8 +1,22 @@
+import { useNavigate } from "react-router-dom";
 import Chat from "../../components/chat/Chat";
 import List from "../../components/list/List";
+import apiRequest from "../../lib/apiRequest";
 import "./profilePage.scss";
 
 function ProfilePage() {
+
+    const navigate = useNavigate();
+    // send req and clear cookie and storage when logout
+    const handleLogout = async () => {
+try {
+    const res = apiRequest.post("/auth/logout");
+localStorage.removeItem("user")
+    navigate("/");
+} catch (error) {
+    console.log(error);
+}
+};
     return (
         <div className="profilePage">
             <div className="details">
@@ -17,6 +31,7 @@ function ProfilePage() {
                         </span>
                         <span>Username: <b>John Doe</b></span>
                         <span>Email: <b>john@gmail.com</b></span>
+                        <button onClick={handleLogout}>Logout</button>
                     </div>
                     <div className="title">
                         <h1>My List</h1>
