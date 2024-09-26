@@ -56,6 +56,8 @@ if(!user) return res.status(401).json({message: "Invalid Credentials!"});
 {expiresIn: age}
 );
 
+const {password: userPassword, ...userInfo} = user
+
  
     res.cookie("token", token, {
         httpOnly: true,
@@ -63,7 +65,7 @@ if(!user) return res.status(401).json({message: "Invalid Credentials!"});
         maxAge : age
     })
     .status(200)
-    .json({message: "Login successful!"});
+    .json(userInfo);
 }catch(error) {
     console.log(error);
     res.status(500).json({message: "Failed to login!"});

@@ -8,6 +8,7 @@ import ListPage from './routes/listPage/ListPage';
 import SinglePage from './routes/singlePage/SinglePage';
 import ProfilePage from './routes/profilePage/ProfilePage';
 import Register from './routes/register/Register';
+import Login from './routes/login/Login';
 
 
 function App() {
@@ -30,13 +31,18 @@ function App() {
           element: <SinglePage/>
         },
         {
-          path: "/profile",
-          element: <ProfilePage/>
+          path: "/login",
+          element: <Login />,
         },
         {
           path: "/register",
           element: <Register/>
-        }
+        },
+        {
+          path: "/profile",
+          element: <ProfilePage/>
+        },
+        
       ]
     
   }
