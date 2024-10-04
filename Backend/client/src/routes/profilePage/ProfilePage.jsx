@@ -3,15 +3,18 @@ import Chat from "../../components/chat/Chat";
 import List from "../../components/list/List";
 import apiRequest from "../../lib/apiRequest";
 import "./profilePage.scss";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 function ProfilePage() {
+    const {updateUser, currentUser} = useContext(AuthContext);
 
     const navigate = useNavigate();
     // send req and clear cookie and storage when logout
     const handleLogout = async () => {
 try {
-    const res = apiRequest.post("/auth/logout");
-localStorage.removeItem("user")
+    await apiRequest.post("/auth/logout");
+updateUser(null);
     navigate("/");
 } catch (error) {
     console.log(error);
@@ -27,10 +30,10 @@ localStorage.removeItem("user")
                     </div>
                     <div className="info">
                         <span>
-                            Avatar: <img src="/john-doe.jpg" alt="" />
+                            Avatar: <img src={currentUser.avatar || "/noavatar.jpg"}alt="" />
                         </span>
-                        <span>Username: <b>John Doe</b></span>
-                        <span>Email: <b>john@gmail.com</b></span>
+                        <span>Username: <b>{currentUser.username}</b></span>
+                        <span>Email: <b>{currentUser.email}</b></span>
                         <button onClick={handleLogout}>Logout</button>
                     </div>
                     <div className="title">
