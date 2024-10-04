@@ -20,18 +20,18 @@ function Layout() {
     )
 }
 
-export default Layout;
 
-function RequireLayout() {
+
+function RequireAuth() {
 
   const {currentUser} = useContext(AuthContext);
-useEffect (() => {
-  if (!currentUser) {
-<Navigate to="/login"/>  }
-})
+//useEffect (() => {
+  //if (!currentUser) {
+//<Navigate to="/login"/>  }
+//}, [currentUser])
  
   return (
- currentUser && <div className='layout'>
+ !currentUser ? (<Navigate to="/login"/>) : <div className='layout'>
     <div className="navbar">
      <Navbar/>
     </div> 
@@ -41,3 +41,5 @@ useEffect (() => {
   </div>
   )
 }
+
+export {Layout, RequireAuth};

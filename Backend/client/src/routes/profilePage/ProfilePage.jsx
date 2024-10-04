@@ -5,18 +5,13 @@ import apiRequest from "../../lib/apiRequest";
 import "./profilePage.scss";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { useEffect } from "react";
+
 
 function ProfilePage() {
     const {updateUser, currentUser} = useContext(AuthContext);
 
     const navigate = useNavigate();
-//protect routes not to throw error if user does not exist and we use "back" btn
-    useEffect(()=> {
-        if(!currentUser) {
-            navigate("/login")
-        }
-    }, [currentUser, navigate])
+
     // send req and clear cookie and storage when logout
     const handleLogout = async () => {
 try {
@@ -28,7 +23,7 @@ updateUser(null);
 }
 };
     return (
-        currentUser && <div className="profilePage">
+        <div className="profilePage">
             <div className="details">
                 <div className="wrapper">
                     <div className="title">
