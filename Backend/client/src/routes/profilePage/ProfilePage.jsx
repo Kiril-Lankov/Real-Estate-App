@@ -5,6 +5,7 @@ import apiRequest from "../../lib/apiRequest";
 import "./profilePage.scss";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import {Link} from "react-router-dom";
 
 
 function ProfilePage() {
@@ -28,7 +29,9 @@ updateUser(null);
                 <div className="wrapper">
                     <div className="title">
                         <h1>User Information</h1>
+                        <Link to="/profile/update">
                         <button>Update Profile</button>
+                        </Link>
                     </div>
                     <div className="info">
                         <span>

@@ -9,6 +9,7 @@ import SinglePage from './routes/singlePage/SinglePage';
 import ProfilePage from './routes/profilePage/ProfilePage';
 import Register from './routes/register/Register';
 import Login from './routes/login/Login';
+import ProfileUpdatePage from './routes/profileUpdatePage/profileUpdatePage';
 
 
 function App() {
@@ -50,6 +51,10 @@ function App() {
         path: "/profile",
         element: <ProfilePage/>
       },
+      {
+        path: "/profile/update",
+        element: <ProfileUpdatePage/>
+      }
       
     ]
   }
