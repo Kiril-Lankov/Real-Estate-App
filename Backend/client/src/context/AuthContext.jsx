@@ -1,5 +1,6 @@
-import {createContext, useEffect, useState } from "react";
-
+import { useEffect } from "react";
+import { useState } from "react";
+import { createContext } from "react";
 
 export const AuthContext = createContext();
 
@@ -8,16 +9,19 @@ export const AuthContextProvider = ({children}) => {
         JSON.parse(localStorage.getItem("user")) || null
     );
 
+    //update user
     const updateUser = (data) => {
-        setCurrentUser(data);
-    }
-    //Update localStorage when user changes
-    useEffect = (() => {
+        setCurrentUser(data)
+    };
+
+    // update localstorage when user chages
+    useEffect(() => {
         localStorage.setItem("user", JSON.stringify(currentUser));
     }, [currentUser]);
 
     return (
         <AuthContext.Provider value={{currentUser, updateUser}}>
-           {children} </AuthContext.Provider>
-    );
-};
+            {children}
+        </AuthContext.Provider>
+    )
+}
