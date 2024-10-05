@@ -10,7 +10,7 @@ import ProfilePage from './routes/profilePage/ProfilePage';
 import Register from './routes/register/Register';
 import Login from './routes/login/Login';
 import ProfileUpdatePage from './routes/profileUpdatePage/profileUpdatePage';
-import NewPostPage from './routes/homePage/newPostPage/NewPostPage';
+import NewPostPage from './routes/newPostPage/NewPostPage';
 
 
 function App() {
@@ -45,7 +45,7 @@ function App() {
       ]
     
   },
-  {
+  { 
     path: "/",
     element:<RequireAuth/>,
     children:[
