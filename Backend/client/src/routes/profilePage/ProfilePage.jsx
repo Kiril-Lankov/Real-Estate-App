@@ -43,7 +43,9 @@ updateUser(null);
                     </div>
                     <div className="title">
                         <h1>My List</h1>
+                        <Link>
                         <button>Create New Post</button>
+                        </Link>
                     </div>
                     <List/>
                     <div className="title">
