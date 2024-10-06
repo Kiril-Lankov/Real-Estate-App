@@ -17,6 +17,7 @@ function NewPostPage() {
     e.preventDefault();
     const formData = new FormData(e.target);
     const inputs = Object.fromEntries(formData);
+    console.log(inputs)
 
     try {
       const res = await apiRequest.post("/posts", {
@@ -45,8 +46,8 @@ function NewPostPage() {
         },
       });
       navigate("/"+res.data.id)
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
       setError(error);
     }
   };
@@ -164,7 +165,7 @@ function NewPostPage() {
         <UploadWidget
           uwConfig={{
             multiple: true,
-            cloudName: "lamadev",
+            cloudName: "ds2pv5rsf",
             uploadPreset: "estate",
             folder: "posts",
           }}
