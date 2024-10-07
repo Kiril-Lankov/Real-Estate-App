@@ -1,3 +1,4 @@
+import { raw } from "@prisma/client/runtime/library";
 import prisma from "../lib/prisma.js"
 import bcrypt from "bcrypt"
 
@@ -71,6 +72,43 @@ export const deleteUser = async (req, res) => {
             where: {id  }
         })
         res.status(200).json({message: "User Deleted!"})
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({message: "Failed to delete user!"})
+    }
+}
+
+export const savePost = async (req, res) => {
+   const postId = req.body.postId;
+   const tokenUserId = req.userId;
+    try {
+       const savedPost = await prisma.savedPost.findUnique({
+        where:{
+            userId_postId: {
+                userId:tokenUserId,
+                postId,
+            }
+        }
+       })
+
+       if (savePost) {
+        await prisma.savedPost.delete({
+            where: {
+                id: savedPost.id
+            }
+        })
+        res.status(200).json({message: "Post removed from saved list!"})
+       }
+       else {
+        await prisma.savedPost.create({
+            data: {
+                userId: tokenUserId,
+                postId,
+            }
+        })
+        res.status(200).json({message: "Post saved!"})
+    }
+       
     } catch (error) {
         console.log(error)
         res.status(500).json({message: "Failed to delete user!"})
