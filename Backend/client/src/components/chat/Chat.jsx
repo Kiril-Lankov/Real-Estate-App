@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./chat.scss";
 
-function Chat() {
+function Chat({chats}) {
     //functionality about chat - show Chatbox if we have any chat messages and hide if we do not
 
     const [chat, setChat] = useState(true);
