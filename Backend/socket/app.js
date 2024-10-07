@@ -17,7 +17,7 @@ const addUser = (userId, socketId) => {
     }
 };
 
-const removeUser = (socketid) => {
+const removeUser = (socketiD) => {
     onlineUser = onlineUser.filter((user) => user.socketId);
 }
 
@@ -27,7 +27,8 @@ const getUser = (userId) => {
 
 io.on("connection", (socket) => {
     socket.on("newUser", (userId) => {
-        addUser(userId, socket.id)
+        addUser(userId, socket.id);
+        console.log(onlineUser)
     })
     socket.on("sendMessage",    ({receiverId, data})=>{
         const receiver = getUser(receiverId);
