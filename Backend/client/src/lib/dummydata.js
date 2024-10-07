@@ -2,7 +2,7 @@ export const listData = [
     {
         id: 1,
         title: "Beautiful apartment.",
-        img: "/1.jpg",
+        images: ["/1.jpg"],
         bedroom: 2,
         bathroom: 1,
         price: 1200,
@@ -15,7 +15,7 @@ export const listData = [
         
         id: 2,
         title: "An awesome Apartment next to the park.",
-        img: "/2.jpg",
+        images: ["/2.jpg"],
         bedroom: 3,
         bathroom: 2,
         price: 2500,
@@ -28,7 +28,7 @@ export const listData = [
         
         id: 3,
         title: "An apartment of your dreams.",
-        img: "3.jpg",
+        images: ["3.jpg"],
         bedroom: 3,
         bathroom: 2,
         price: 1500,
