@@ -3,12 +3,14 @@ import "./chat.scss";
 import { AuthContext } from "../../context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
 import { format } from "timeago.js";
+import { SocketContext } from "../../context/SocketContext";
 
 function Chat({chats}) {
     //functionality about chat - show Chatbox if we have any chat messages and hide if we do not
 
     const [chat, setChat] = useState(null);
     const {currentUser} = useContext(AuthContext);
+    const {socket} = useContext(SocketContext);
 
     const handleOpenChat = async (id, receiver) => {
         try {
@@ -35,8 +37,12 @@ function Chat({chats}) {
             console.log(error)
         }
     }
+    const testSocket = () => {
+        socket.emit("test", "hi from client")
+    }
     return (
         <div className="chat">
+            <button onClick={testSocket}>Test Me</button>
             <div className="messages">
                 <h1>Message</h1>
                 {chats?.map((c)=> (

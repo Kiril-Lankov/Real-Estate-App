@@ -8,8 +8,30 @@ const io = new Server({
     }
 });
 
+let onlineUser = [];
+
+const addUser = (userId, socketId) => {
+    const userExits = onlineUser.find((user) => user.userId === userId);
+    if (!userExits) {
+        onlineUser.push({userId, socketId})
+    }
+};
+
+const removeUser = (socketid) => {
+    onlineUser = onlineUser.filter((user) => user.socketId);
+}
+
+const getUser = (userId) => {
+    return onlineUser.find((user) => user.userId === userId);
+}
+
 io.on("connection", (socket) => {
-    console.log(socket);
+    socket.on("newUser", (userId) => {
+        addUser(userId, socket.id)
+    })
+    socket.on("disconnect", ()=> {
+        removeUser(socket.id)
+    })
 });
 
 io.listen("4000")
