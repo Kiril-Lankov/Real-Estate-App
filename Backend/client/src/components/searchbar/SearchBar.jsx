@@ -33,7 +33,7 @@ function SearchBar() {
             
             </div>
             <form>
-                <input type="text" name="city" placeholder="City" onChange={handleChange} />
+                <input type="text" name="location" placeholder="City" onChange={handleChange} />
                 <input type="number" 
                 name="minPrice"
                  min={0}
@@ -47,7 +47,7 @@ function SearchBar() {
                  placeholder="Max Price" 
                  onChange={handleChange}/>
                 <Link
-          to={`/list?type=${query.type}&city=${query.city}&minPrice=${query.minPrice}&maxPrice=${query.maxPrice}`}
+          to={`/list?type=${query.type}&city=${query.location}&minPrice=${query.minPrice}&maxPrice=${query.maxPrice}`}
         >
           <button>
             <img src="/search.png" alt="" />

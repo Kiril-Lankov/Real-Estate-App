@@ -10,7 +10,7 @@ function Filter() {
     property: searchParams.get("property") || "",
     minPrice: searchParams.get("minPrice") || "",
     maxPrice: searchParams.get("maxPrice") || "",
-    bedroom: searchParams.get("bedroom") || "",
+    //bedroom: searchParams.get("bedroom") || "",
   });
 
   const handleChange = (e) => {
@@ -85,7 +85,7 @@ function Filter() {
         <div className="item">
           <label htmlFor="maxPrice">Max Price</label>
           <input
-            type="text"
+            type="number"
             id="maxPrice"
             name="maxPrice"
             placeholder="any"
@@ -93,17 +93,17 @@ function Filter() {
             defaultValue={query.maxPrice}
           />
         </div>
-        <div className="item">
+       {/*} <div className="item">
           <label htmlFor="bedroom">Bedroom</label>
           <input
-            type="text"
+            type="number"
             id="bedroom"
             name="bedroom"
             placeholder="any"
             onChange={handleChange}
             defaultValue={query.bedroom}
           />
-        </div>
+        </div> */}
         <button onClick={handleFilter}>
           <img src="/search.png" alt="" />
         </button>
