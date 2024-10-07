@@ -60,16 +60,6 @@ model PostDetail {
    postId String @db.ObjectId @unique 
 }
 
-model User {
-  id         String      @id @default(auto()) @map("_id") @db.ObjectId
-  email      String      @unique
-  username   String      @unique
-  password   String
-  avatar     String?
-  createdAt  DateTime    @default(now())
-  posts      Post[]
-  savedPosts SavedPost[]
-}
 
 model SavedPost {
   id         String      @id @default(auto()) @map("_id") @db.ObjectId
@@ -79,4 +69,38 @@ model SavedPost {
   postId String @db.ObjectId @unique
   createdAt  DateTime    @default(now())
   @@unique([userId, postId])
+}
+
+
+model User {
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
+  email      String      @unique
+  username   String      @unique
+  password   String
+  avatar     String?
+  createdAt  DateTime    @default(now())
+  posts      Post[]
+  savedPosts SavedPost[]
+  chats Chat[] @relation(fields: [chatIDs], references: [id])
+  chatIDs String[] @db.ObjectId
+}
+
+model Chat {
+id         String      @id @default(auto()) @map("_id") @db.ObjectId
+users User[] @relation(fields: [userIDs], references: [id])
+userIDs String[] @db.ObjectId
+createdAt DateTime @default(now())
+seenBy String[] @db.ObjectId
+messages Message[]
+lastMessage String?
+}
+
+model Message {
+id         String      @id @default(auto()) @map("_id") @db.ObjectId
+text String
+userId String
+chat Chat @relation(fields: [chatId], references: [id])
+chatId String @db.ObjectId
+createdAt DateTime @default(now())
+
 }
