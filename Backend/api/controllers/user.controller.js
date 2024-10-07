@@ -111,7 +111,7 @@ export const savePost = async (req, res) => {
        
     } catch (error) {
         console.log(error)
-        res.status(500).json({message: "Failed to delete post!"})
+        res.status(500).json({message: "Failed to save post!"})
     }
 }
 

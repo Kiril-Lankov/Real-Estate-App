@@ -17,8 +17,9 @@ const navigate = useNavigate();
 const handleSave = async () => {
     
     if (!currentUser) {
-       return navigate("/login")
+       navigate("/login")
     }
+    setSaved((prev) => !prev);
     try {
         await apiRequest.post("/users/save", {postId: post.id});
     } catch (error) {
